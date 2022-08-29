@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Entities\" />
+    <None Remove="Interface\" />
+    <None Remove="BusinessLayer\" />
+    <None Remove="RepositoryLayer\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Entities\" />
+    <Folder Include="Interface\" />
+    <Folder Include="BusinessLayer\" />
+    <Folder Include="RepositoryLayer\" />
+  </ItemGroup>
+</Project>

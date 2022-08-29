@@ -1,0 +1,65 @@
+﻿@model BookStore.Models.BookModelEntity
+@{
+    ViewBag.Title = "Search";
+}
+<!DOCTYPE html>
+<html>
+<body>
+    @using (Html.BeginForm("AddFav", "Main"))
+    {
+        <h2>List of Books</h2>
+        <table>
+
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Location</th>
+                <th>Category</th>
+                <th>Pages</th>
+                <th>Tags</th>
+            </tr>
+            @foreach (var item in Model.BookList)
+            {
+                <tr>
+                    <td name="Title">@item.Title</td>
+                    <td name="Author">@item.Author</td>
+                    <td name="Location">@item.Location</td>
+                    <td name="Category">@item.Category</td>
+                    <td name="Pages">@item.Pages</td>
+                    <td name="Tags">@item.Tags</td>
+                    @*<td>@Html.DisplayFor(modelItem => item.Title)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Author)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Location)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Category)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Pages)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Tags)</td>*@
+                    @*<td>@Html.ActionLink("Add to favourites", "AddFav", new{@item.Title,@item.Author})</td>*@
+                    <td><input type="checkbox" onclick="location.href='@Url.Action("AddFav", "Main",new { item.Title, item.Author })'" /></td>
+                </tr>
+
+            }
+        </table>
+    }
+    <br />
+    <h2>Favourite Books</h2>
+    <table>
+
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+
+        </tr>
+        @foreach (var item in Model.List)
+        {
+            <tr>
+                <td>@item.Title</td>
+                <td>@item.Author</td>
+            </tr>
+        }
+    </table>
+    <br />
+    <div>
+        @Html.ActionLink("Back to Main Page", "Index")
+    </div>
+</body>
+</html>
